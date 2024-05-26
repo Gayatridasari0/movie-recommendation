@@ -6,7 +6,7 @@ import requests
 def fetchPoster(movie_id):
     response = requests.get('https://api.themoviedb.org/3/movie/{}?api_key=4adfbf9ae034c42098a91cfaa878864d'.format(movie_id))
     data = response.json()
-    return "https://image.tmdb.org/t/p/w500/ "+data['poster_path']
+    return "https://image.tmdb.org/t/p/w500/"+data['poster_path']
 def recommend(movie):
     movieIdx = movies_list[movies_list['title'] == movie].index[0]
     recommend_list = sorted(list(enumerate(similarity[movieIdx])), reverse=True, key=lambda x: x[1])[1:6]
